@@ -1,37 +1,14 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import styled from 'styled-components';
+import {
+  Section,
+  Table,
+  Thead,
+  Trow,
+  TrowList,
+  Cell,
+} from './Transaction-styled.js';
 
-//Styles
-const Section = styled.section`
-  padding: 15px;
-`;
-
-const Table = styled.table`
-  margin: 0 auto;
-  width: 500px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-`;
-const Thead = styled.thead`
-  background-color: #4df3ff;
-  height: 40px;
-`;
-
-const Trow = styled.tr`
-  height: 40px;
-`;
-
-const TrowList = styled.tr`
-  background-color: #fff;
-  :not(:nth-child(odd)) {
-    background-color: #cacaca;
-  }
-`;
-const Cell = styled.td`
-  padding: 5px;
-`;
-
-//Component
 export default function TransactionHistory({ items }) {
   return (
     <Section>
@@ -45,11 +22,11 @@ export default function TransactionHistory({ items }) {
         </Thead>
 
         <tbody>
-          {items.map(item => (
-            <TrowList key={item.id}>
-              <Cell>{item.type}</Cell>
-              <Cell>{item.amount}</Cell>
-              <Cell>{item.currency}</Cell>
+          {items.map(({ id, type, amount, currency }) => (
+            <TrowList key={id}>
+              <Cell>{type}</Cell>
+              <Cell>{amount}</Cell>
+              <Cell>{currency}</Cell>
             </TrowList>
           ))}
         </tbody>

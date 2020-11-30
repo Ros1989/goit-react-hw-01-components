@@ -1,19 +1,8 @@
 import React from 'react';
 import FriendListItem from './FriendListItem';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { Section, List } from './FriendList-styled.js';
 
-//Styles
-const Section = styled.section`
-  padding: 20px;
-`;
-
-const List = styled.ul`
-  width: 500px;
-  margin: 0 auto;
-`;
-
-//Components
 export default function FriendList({ friends }) {
   return (
     <Section>
